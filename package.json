@@ -1,0 +1,24 @@
+{
+  "name": "firebot",
+  "version": "1.0.0",
+  "description": "Custom bot for Ring of Fire Discord server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "better-sqlite3": "^7.0.1",
+    "chalk": "^4.0.0",
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "enmap": "^5.2.4",
+    "fs": "0.0.1-security",
+    "insult-compliment": "^1.1.4",
+    "moment": "^2.25.3",
+    "moment-duration-format": "^2.3.2",
+    "table": "^5.4.6",
+    "urban": "^0.3.2"
+  }
+}
