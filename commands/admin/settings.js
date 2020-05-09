@@ -313,14 +313,13 @@ module.exports.run = async (client, message, args) => {
                         client.settings.set(message.guild.id, settings);
                         return success('muted role', 'not enabled');
                     } else {
-                        let role = args[2];
+                    let role = args[2];
                     if (!role) return client.errors(message, 'param', '`ROLE MENTION OR ID`, OR `REMOVE`');
                     role = message.mentions.roles.first() || message.guild.roles.cache.get(channel);
                     if (!role) return client.errors(message, 'err', 'Unable to find that role.');
-                    role = role.id;
-                    settings.roles.mute = role;
-                        client.settings.set(message.guild.id, settings);
-                        return success('muted role', `<@&${role}>`);
+                    settings.roles.muted = role.id;
+                    client.settings.set(message.guild.id, settings);
+                    return success('muted role', `<@&${role.id}>`);
                     };
                 };
                 case 'admin':{
