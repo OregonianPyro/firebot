@@ -189,18 +189,18 @@ module.exports.run = async (client, message, args) => {
                 };
             };
         };
-        case 'imagelog':{
+        case 'imglog':{
             let key2 = args[1];
             if (!key2) return client.errors(message, 'param', 'TOGGLE, SET, TYPE');
             if (!['toggle', 'set', 'type'].includes(key2.toLowerCase())) return client.errors(message, 'err', 'Key must be `toggle`, `set`, or `type`.');
             switch (key2.toLowerCase()) {
                 case 'toggle':{
-                    if (settings.logging.imglog.enabled) {
-                        settings.logging.imglog.enabled = false;
+                    if (settings.logging.imagelog.enabled) {
+                        settings.logging.imagelog.enabled = false;
                         client.settings.set(message.guild.id, settings);
                         return success('image logging', 'disabled');
-                    } else if (!settings.logging.imglog.enabled) {
-                        settings.logging.imglog.enabled = true;
+                    } else if (!settings.logging.imagelog.enabled) {
+                        settings.logging.imagelog.enabled = true;
                         client.settings.set(message.guild.id, settings);
                         return success('image logging', 'enabled');
                     };
@@ -211,7 +211,7 @@ module.exports.run = async (client, message, args) => {
                     channel = message.mentions.channels.first() || message.guild.channels.cache.get(channel);
                     if (!channel) return client.errors(message, 'err', 'Unable to find that channel.');
                     channel = channel.id;
-                    settings.logging.imglog.channel = channel;
+                    settings.logging.imagelog.channel = channel;
                         client.settings.set(message.guild.id, settings);
                         return success('image logging channel', `<#${channel}>`);
                 };
@@ -220,7 +220,7 @@ module.exports.run = async (client, message, args) => {
                     if (!type) return client.errors(message, 'param', 'EMBED OR TEXT');
                     if (!['embed', 'text'].includes(type.toLowerCase())) return client.errors(message, 'param', 'EMBED, TEXT');
                     type = args[2].toLowerCase();
-                    settings.logging.imglog.type = type;
+                    settings.logging.imagelog.type = type;
                         client.settings.set(message.guild.id, settings);
                         return success('image logging type', type);
                 };
